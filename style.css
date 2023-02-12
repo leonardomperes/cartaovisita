@@ -60,12 +60,12 @@ body * {
 }
 
 /* switch */
-#switch{
+#switch {
   width: 64px;
   position: relative;
   margin: 4px auto;
 }
-#switch button{
+#switch button {
   width: 32px;
   height: 32px;
   background: white var(--switch-bg-url) no-repeat center;
@@ -76,13 +76,17 @@ body * {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
+  animation: slide-left 0.2s;
 }
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-right 0.2s forwards;
 }
 
-#switch span{
+#switch button:hover {
+  outline: 8px solid var(--hightlight-color);
+}
+
+#switch span {
   display: block;
   width: 64px;
   height: 24px;
@@ -91,7 +95,6 @@ body * {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
-
 }
 
 ul {
@@ -150,13 +153,31 @@ footer {
 }
 
 /* media queries */
-@media (min-width: 700px){
+@media (min-width: 700px) {
   :root {
-    --bg-url: url(./assets/bg-desktop-darkMode.jpg)
+    --bg-url: url(./assets/bg-desktop-darkMode.jpg);
   }
 
   .light {
-    --bg-url: url(./assets/bg-desktop-lightMode.jpg)
+    --bg-url: url(./assets/bg-desktop-lightMode.jpg);
   }
+}
 
+/* animation */
+@keyframes slide-right {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-left {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
